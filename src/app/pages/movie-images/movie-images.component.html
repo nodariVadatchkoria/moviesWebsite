@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <h2>Movie Image</h2>
+  </div>
+  <input [(ngModel)]="movieId" placeholder="Enter Movie ID">
+  <button (click)="fetchMovieImage()">Get Movie Image</button>
+  <div>
+    <img [src]="movieImage | async" alt="Movie Image">
+  </div>
+</div>
+
+
