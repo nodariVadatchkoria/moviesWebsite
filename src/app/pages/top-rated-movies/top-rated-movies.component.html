@@ -1,0 +1,11 @@
+<h2>Top Rated Movies</h2>
+<div *ngFor="let movie of topRatedMovies; let i = index">
+  <h3>{{ i + 1 }}. {{ movie.title }}</h3>
+  <p>Language: {{ movie.original_language }}</p>
+  <p>Rating: {{ movie.vote_average }}</p>
+  <p>Release Date: {{ movie.release_date }}</p>
+  <p>Overview: {{ movie.overview }}</p>
+  <p>Popularity: {{ movie.popularity }}</p>
+
+  <img [src]="getMovieImage(movie.id)" alt="Movie Image">
+</div>

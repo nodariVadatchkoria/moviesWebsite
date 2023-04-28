@@ -6,11 +6,15 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./interceptor/auth.interceptor";
 import {FormsModule} from "@angular/forms";
 import { MovieImagesComponent } from './pages/movie-images/movie-images.component';
+import { TopRatedMoviesComponent } from './pages/top-rated-movies/top-rated-movies.component';
+import { AllMoviesComponent } from './pages/all-movies/all-movies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MovieImagesComponent
+    MovieImagesComponent,
+    TopRatedMoviesComponent,
+    AllMoviesComponent
   ],
   imports: [
     BrowserModule,

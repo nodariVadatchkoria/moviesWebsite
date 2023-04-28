@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {TmdbService} from "../../services/tmdb.service";
 
@@ -7,16 +7,23 @@ import {TmdbService} from "../../services/tmdb.service";
   templateUrl: './movie-images.component.html',
   styleUrls: ['./movie-images.component.scss']
 })
-export class MovieImagesComponent {
+export class MovieImagesComponent implements OnInit {
 
-  movieId: number | undefined;
+  movieId: number | undefined = 238;
   movieImage: Observable<string> | undefined;
 
   constructor(private tmdbService: TmdbService) {}
 
+
   fetchMovieImage() {
+
     this.movieImage = this.tmdbService.getMovieImage(this.movieId);
-    localStorage.setItem('movieId', String(this.movieId));
+
+
+  }
+
+  ngOnInit(): void {
+    this.fetchMovieImage();
   }
 
 }

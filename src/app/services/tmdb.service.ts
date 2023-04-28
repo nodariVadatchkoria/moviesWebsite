@@ -20,9 +20,32 @@ export class TmdbService {
           return `https://image.tmdb.org/t/p/w500${imageUrl}`;
         }),
         catchError((error: any) => {
-          console.error('Failed to fetch movie images:', error);
+          console.error('Failed to fetch movie.ts images:', error);
           return throwError(error);
         })
       );
   }
+
+  getTopRatedMovies(): Observable<any[]> {
+    const url = `${this.apiUrl}/movie/top_rated?api_key=${this.apiKey}`;
+    return this.http.get<any[]>(url)
+      .pipe(
+        map((response: any) => response.results),
+        catchError((error: any) => {
+          console.error('Failed to fetch top-rated movies:', error);
+          return throwError(error);
+        })
+      );
+  }
+  getMovieDetails(movieId: number): Observable<any> {
+    const url = `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`;
+    return this.http.get(url)
+      .pipe(
+        catchError((error: any) => {
+          console.error('Failed to fetch movie.ts details:', error);
+          return throwError(error);
+        })
+      );
+  }
+
 }

@@ -20,7 +20,7 @@ constructor(
     this.fetchMovieImage();
   }
   fetchMovieImage() {
-    const movieId = 123; // Replace with the actual movie ID you want to fetch the image for
+    const movieId = 123; // Replace with the actual movie.ts ID you want to fetch the image for
     this.movieImage = this.tmdb.getMovieImage(movieId);
   }
 
