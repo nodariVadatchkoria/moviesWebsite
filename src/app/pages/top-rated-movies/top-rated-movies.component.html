@@ -1,12 +1,32 @@
-<h2>Top Rated Movies</h2>
-<div *ngFor="let movie of topRatedMovies; let i = index">
-  <h3>{{ i + 1 }}. {{ movie.title }}</h3>
-  <p>Language: {{ movie.original_language }}</p>
-  <p>Rating: {{ movie.vote_average }}</p>
-  <p>Release Date: {{ movie.release_date }}</p>
-  <p>Overview: {{ movie.overview }}</p>
-  <p>Popularity: {{ movie.popularity }}</p>
-  <p>id: {{movie.id}}</p>
+<!--<h2>Top Rated Movies</h2>-->
+<!--<div *ngFor="let movie of topRatedMovies; let i = index">-->
+<!--  <h3>{{ i + 1 }}. {{ movie.title }}</h3>-->
+<!--  <p>Language: {{ movie.original_language }}</p>-->
+<!--  <p>Rating: {{ movie.vote_average }}</p>-->
+<!--  <p>Release Date: {{ movie.release_date }}</p>-->
+<!--  <p>Overview: {{ movie.overview }}</p>-->
+<!--  <p>Popularity: {{ movie.popularity }}</p>-->
+<!--  <p>id: {{movie.id}}</p>-->
 
-  <img [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" alt="Movie Image">
+<!--  <img [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" alt="Movie Image">-->
+<!--</div>-->
+
+<div *ngIf="movies$ | async as movies; else loading;" >
+  <h2>Top Rated Movies</h2>
+  <ul class="movie-box ">
+    <li *ngFor="let movie of movies">
+      <h3>{{ movie.title }}</h3>
+      <p>Language: {{ movie.original_language }}</p>
+      <p>Rating: {{ movie.vote_average }}</p>
+      <p>Release Date: {{ movie.release_date }}</p>
+      <p>Overview: {{ movie.overview }}</p>
+      <p>Popularity: {{ movie.popularity }}</p>
+      <img *ngIf="movie.poster_path" [src]="endPoint + movie.poster_path" alt="{{ movie.title }} Poster" width="200">
+      <div *ngIf="!movie.poster_path">No poster available</div>
+    </li>
+  </ul>
 </div>
+
+<ng-template #loading>
+  <p>Loading movies...</p>
+</ng-template>

@@ -106,3 +106,66 @@ footer {
   padding: 10px;
   text-align: center;
 }
+//================================ backDrop menu ================================
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin: 0 10px;
+  position: relative;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.backdrop-menu {
+  position: relative;
+}
+
+.dropdown-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  margin-top: 10px;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(35, 34, 34, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.backdrop-menu:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.backdrop-menu:hover .backdrop {
+  opacity: 1;
+  visibility: visible;
+
+}
+//=============================== end backDrop menu ================================

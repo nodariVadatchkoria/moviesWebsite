@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TmdbService} from "../../services/tmdb.service";
-import {Subject, takeUntil, tap} from "rxjs";
+import {Observable, Subject, takeUntil, tap} from "rxjs";
+import {IMovie} from "../../interfaces/movie";
 
 @Component({
   selector: 'app-top-rated-movies',
@@ -10,12 +11,14 @@ import {Subject, takeUntil, tap} from "rxjs";
 export class TopRatedMoviesComponent implements OnInit {
   topRatedMovies: any[] = [];
   sub$ = new Subject()
+  movies$: Observable<IMovie[]> | undefined
 
   constructor(
     private tmdbService: TmdbService
   ) {}
   ngOnInit() {
     this.fetchTopRatedMovies();
+    this.movies$ = this.tmdbService.getTopRatedMovies();
   }
   fetchTopRatedMovies() {
     this.tmdbService.getTopRatedMovies()
@@ -43,5 +46,7 @@ export class TopRatedMoviesComponent implements OnInit {
         });
     }
   }
+
+  endPoint= 'https://image.tmdb.org/t/p/w500';
 
 }
