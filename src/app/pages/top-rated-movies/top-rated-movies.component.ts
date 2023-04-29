@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TmdbService} from "../../services/tmdb.service";
-import {Subject, takeUntil} from "rxjs";
+import {Subject, takeUntil, tap} from "rxjs";
 
 @Component({
   selector: 'app-top-rated-movies',
@@ -27,7 +27,12 @@ export class TopRatedMoviesComponent implements OnInit {
       });
   }
   getMovieImage(movieId: number) {
-    return this.tmdbService.getMovieImage(movieId);
+    return this.tmdbService.getMovieImage(movieId).pipe(
+      tap(
+        console.log
+      )
+    );
+
   }
   fetchMovieDetails() {
     for (const movie of this.topRatedMovies) {

@@ -6,6 +6,7 @@
   <p>Release Date: {{ movie.release_date }}</p>
   <p>Overview: {{ movie.overview }}</p>
   <p>Popularity: {{ movie.popularity }}</p>
+  <p>id: {{movie.id}}</p>
 
-  <img [src]="getMovieImage(movie.id)" alt="Movie Image">
+  <img [src]="'https://image.tmdb.org/t/p/w500'+movie.poster_path" alt="Movie Image">
 </div>
