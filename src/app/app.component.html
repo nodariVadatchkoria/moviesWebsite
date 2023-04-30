@@ -17,12 +17,17 @@
         </ul>
       </li>
       <li><a href="#">TV Shows</a></li>
-      <li><a href="#">People</a></li>
+      <li><a routerLink="people">People</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
+  <section>
+    <div class ='people'>
+      <router-outlet></router-outlet>
+    </div>
+  </section>
   <section class="hero">
     <div class="hero-content">
       <h2>Welcome to The Movie Database</h2>

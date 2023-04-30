@@ -47,5 +47,8 @@ export class TmdbService {
         })
       );
   }
+  getPopularPeople(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/person/popular?api_key=${this.apiKey}`)
+  }
 
 }
