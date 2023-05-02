@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {catchError, map, Observable, throwError} from "rxjs";
+import {catchError, forkJoin, map, Observable, tap, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +8,7 @@ import {catchError, map, Observable, throwError} from "rxjs";
 export class TmdbService {
   private apiUrl = 'https://api.themoviedb.org/3';
   private apiKey = 'ac8e2b2c50afebfa47ac487c0271aa49';
+  popularPeople: any[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -48,7 +49,20 @@ export class TmdbService {
       );
   }
   getPopularPeople(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/person/popular?api_key=${this.apiKey}`)
+    const totalPages = 500; // The total number of pages available on TMDB
+    const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+    const requests = pageNumbers.map((pageNumber) => {
+      const url = `https://api.themoviedb.org/3/person/popular?api_key=${this.apiKey}&page=${pageNumber}`;
+      return this.http.get<any>(url).pipe(map((response) => response.results));
+    });
+
+    return forkJoin(requests)
+      .pipe(
+        map((results) => results.flat()),
+        tap((data) => {
+          this.popularPeople = data;
+        })
+      );
   }
 
 }
