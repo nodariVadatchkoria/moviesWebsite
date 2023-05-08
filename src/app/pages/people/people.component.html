@@ -34,7 +34,7 @@
 
 <!-- Displayed People -->
 <div *ngFor="let person of displayedPeople">
-  <p>{{ person.name }}</p>
+  <p routerLink="person/:id">{{ person.name }}</p>
 
 </div>
 

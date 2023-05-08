@@ -60,15 +60,16 @@ constructor(private tmdbservice: TmdbService) { }
     }
   }
 
-  ngOnInit(){
-    // this.getPeople()
-this.tmdbservice.getPopularPeople().subscribe((data: any) => {
-  this.popularPeople = data;
-  this.getPaginationData();
-  },
-(error) => {
-      console.error(error); // Optional: Handle any errors that occurred during the API request
+  initialPage() {
+    this.tmdbservice.getPopularPeople().subscribe((data: any) => {
+      this.popularPeople = data;
+      this.getPaginationData();
     }
-  )
-}
+    );
+  }
+
+  ngOnInit() {
+    this.initialPage();
+  }
+
 }

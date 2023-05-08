@@ -48,7 +48,7 @@ export class TmdbService {
         })
       );
   }
-  getPopularPeople(): Observable<any[]> {
+  getPopularPeople(): Observable<any> {
     const totalPages = 500; // The total number of pages available on TMDB
     const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
     const requests = pageNumbers.map((pageNumber) => {
