@@ -1,63 +1,63 @@
-<div class="body">
-<header>
-  <nav>
-    <div class="logo">
-      <h1>The Movie Database</h1>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#">Home</a></li>
-      <li class="backdrop-menu">
-        <a href="#">Movies</a>
-        <div class="backdrop"></div>
-        <ul class="dropdown-menu">
-          <li><a href="#">Action</a></li>
-          <li><a href="#">Comedy</a></li>
-          <li><a href="#">Drama</a></li>
-          <!-- Add more movie genres as needed -->
-        </ul>
-      </li>
-      <li><a href="#">TV Shows</a></li>
-      <li><a routerLink="person">People</a></li>
-    </ul>
-  </nav>
-</header>
+<!--<div class="body">-->
+<!--<header>-->
+<!--  <nav>-->
+<!--    <div class="logo">-->
+<!--      <h1>The Movie Database</h1>-->
+<!--    </div>-->
+<!--    <ul class="nav-links">-->
+<!--      <li><a href="#">Home</a></li>-->
+<!--      <li class="backdrop-menu">-->
+<!--        <a href="#">Movies</a>-->
+<!--        <div class="backdrop"></div>-->
+<!--        <ul class="dropdown-menu">-->
+<!--          <li><a href="#">Action</a></li>-->
+<!--          <li><a href="#">Comedy</a></li>-->
+<!--          <li><a href="#">Drama</a></li>-->
+<!--          &lt;!&ndash; Add more movie genres as needed &ndash;&gt;-->
+<!--        </ul>-->
+<!--      </li>-->
+<!--      <li><a href="#">TV Shows</a></li>-->
+<!--      <li><a routerLink="person">People</a></li>-->
+<!--    </ul>-->
+<!--  </nav>-->
+<!--</header>-->
 
-<main>
-  <section>
-    <div class ='people'>
-      <router-outlet></router-outlet>
-    </div>
-  </section>
-  <section class="hero">
-    <div class="hero-content">
-      <h2>Welcome to The Movie Database</h2>
-      <p>Discover and explore your favorite movies, TV shows, and more!</p>
-      <a href="#" class="btn">Get Started</a>
-    </div>
-  </section>
+<!--<main>-->
+<!--  <section>-->
+<!--    <div class ='people'>-->
+<!--      <router-outlet></router-outlet>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--  <section class="hero">-->
+<!--    <div class="hero-content">-->
+<!--      <h2>Welcome to The Movie Database</h2>-->
+<!--      <p>Discover and explore your favorite movies, TV shows, and more!</p>-->
+<!--      <a href="#" class="btn">Get Started</a>-->
+<!--    </div>-->
+<!--  </section>-->
 
-  <section class="featured-movies">
-    <app-movie-images class="movie-grid"></app-movie-images>
-    <app-top-rated-movies></app-top-rated-movies>
-    <h2>Featured Movies</h2>
-    <div class="movie-grid">
-      <div class="movie-card">
-        <img [src]="movieImage | async" alt="Movie Image">
-        <h3>Movie 1</h3>
-      </div>
-      <div class="movie-card">
-        <img [src]="movieImage | async" alt="Movie Image">
-        <h3>Movie 2</h3>
-      </div>
-      <div class="movie-card">
-        <img [src]="movieImage | async" alt="Movie Image">
-        <h3>Movie 3</h3>
-      </div>
-    </div>
-  </section>
-</main>
+<!--  <section class="featured-movies">-->
+<!--    <app-movie-images class="movie-grid"></app-movie-images>-->
+<!--    <app-top-rated-movies></app-top-rated-movies>-->
+<!--    <h2>Featured Movies</h2>-->
+<!--    <div class="movie-grid">-->
+<!--      <div class="movie-card">-->
+<!--        <img [src]="movieImage | async" alt="Movie Image">-->
+<!--        <h3>Movie 1</h3>-->
+<!--      </div>-->
+<!--      <div class="movie-card">-->
+<!--        <img [src]="movieImage | async" alt="Movie Image">-->
+<!--        <h3>Movie 2</h3>-->
+<!--      </div>-->
+<!--      <div class="movie-card">-->
+<!--        <img [src]="movieImage | async" alt="Movie Image">-->
+<!--        <h3>Movie 3</h3>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--</main>-->
 
-<footer>
-  <p>&copy; 2023 The Movie Database. All rights reserved.</p>
-</footer>
-</div>
+<!--<footer>-->
+<!--  <p>&copy; 2023 The Movie Database. All rights reserved.</p>-->
+<!--</footer>-->
+<!--</div>-->
