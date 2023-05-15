@@ -2,11 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {TmdbService} from "../../services/tmdb.service";
 import {Observable, Subject, takeUntil, tap} from "rxjs";
 import {IMovie} from "../../interfaces/movie";
+import { NgIf, NgFor, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-top-rated-movies',
-  templateUrl: './top-rated-movies.component.html',
-  styleUrls: ['./top-rated-movies.component.scss']
+    selector: 'app-top-rated-movies',
+    templateUrl: './top-rated-movies.component.html',
+    styleUrls: ['./top-rated-movies.component.scss'],
+    standalone: true,
+    imports: [NgIf, NgFor, AsyncPipe]
 })
 export class TopRatedMoviesComponent implements OnInit {
   topRatedMovies: any[] = [];

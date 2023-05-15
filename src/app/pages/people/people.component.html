@@ -1,46 +1,13 @@
-<!--<div class="content">-->
-<!--  <h2><span class="title">Popular People</span></h2>-->
 
-<!--  <div class="results flex results_profile_card">-->
-<!--    <div class="fifty_square">-->
-<!--      <div class="item profile card">-->
-<!--        <div class="image_content">-->
-<!--          <a id="person_224513" class="result" href="/person/224513" title="Ana de Armas" alt="Ana de Armas">-->
-<!--            <img loading="lazy" class="profile" src="/t/p/w235_and_h235_face/3vxvsmYLTf4jnr163SUlBIw51ee.jpg" srcset="/t/p/w235_and_h235_face/3vxvsmYLTf4jnr163SUlBIw51ee.jpg 1x, /t/p/w470_and_h470_face/3vxvsmYLTf4jnr163SUlBIw51ee.jpg 2x" alt="Ana de Armas">-->
+<p>people list</p>
+<!--<div *ngFor="let person of displayedPeople">-->
+<!--  <p routerLink="person/:id">{{ person.name }}</p>-->
 
-<!--          </a>-->
-<!--        </div>-->
-<!--        <div class="meta">-->
-<!--          <p class="name"><a href="/person/224513">Ana de Armas</a></p>-->
-<!--          <p class="sub">Blade Runner 2049, Knives Out, War Dogs</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+<!--</div>-->
 
-<!--        <div class="meta">-->
-<!--          <p class="name"><a href="/person/58021">Tinto Brass</a></p>-->
-<!--          <p class="sub">Caligula, The Key, Paprika</p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-
-
-
-<!--    <div class="pagination_wrapper">-->
-<!--      <div role="navigation" aria-label="Pagination" class="pagination"><span class="previous_page disabled" aria-disabled="true">← Previous</span> <em class="current" aria-label="Page 1" aria-current="page">1</em> <a rel="next" aria-label="Page 2" href="/person?page=2">2</a> <a aria-label="Page 3" href="/person?page=3">3</a> <a aria-label="Page 4" href="/person?page=4">4</a> <a aria-label="Page 5" href="/person?page=5">5</a> <a aria-label="Page 6" href="/person?page=6">6</a> <a aria-label="Page 7" href="/person?page=7">7</a> <span class="gap">…</span> <a aria-label="Page 499" href="/person?page=499">499</a> <a aria-label="Page 500" href="/person?page=500">500</a> <a class="next_page" rel="next" href="/person?page=2">Next →</a></div>-->
-<!--    </div>-->
-
-<!-- Displayed People -->
-<div *ngFor="let person of displayedPeople">
-  <p routerLink="person/:id">{{ person.name }}</p>
-
-</div>
-
-<div>
-  <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
-  <button *ngFor="let pageNumber of totalPages" (click)="goToPage(pageNumber)">{{ pageNumber }}</button>
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-</div>
+<!--<div>-->
+<!--  <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>-->
+<!--  <button *ngFor="let pageNumber of totalPages" (click)="goToPage(pageNumber)">{{ pageNumber }}</button>-->
+<!--  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>-->
+<!--</div>-->
 

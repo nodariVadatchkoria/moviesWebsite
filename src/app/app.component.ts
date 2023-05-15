@@ -2,14 +2,25 @@ import {Component, OnInit} from '@angular/core';
 import {TmdbService} from "./services/tmdb.service";
 import {Observable} from "rxjs";
 import {CommonModule} from "@angular/common";
+import {RouterOutlet} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 @Component({
-  selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
+    selector: 'app-root',
+    template: '<router-outlet/>',
 
+    standalone: true,
 
+  imports:
+[
+  RouterOutlet,
+  CommonModule,
+  FormsModule,
+]
 })
+
 export class AppComponent {
+
   title = 'moviesWebsite'
 
 //   movieImage: Observable<string> | undefined;

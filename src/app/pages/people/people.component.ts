@@ -1,10 +1,14 @@
 import {Component, OnInit} from '@angular/core';
-import {TmdbService} from "../../services/tmdb.service";
+import {TmdbService} from "../../services";
+import { RouterLink } from '@angular/router';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-people',
-  templateUrl: './people.component.html',
-  styleUrls: ['./people.component.scss']
+    selector: 'app-people',
+    templateUrl: './people.component.html',
+    styleUrls: ['./people.component.scss'],
+    standalone: true,
+    imports: [NgFor, RouterLink]
 })
 export class PeopleComponent implements OnInit{
 constructor(private tmdbservice: TmdbService) { }
@@ -69,7 +73,7 @@ constructor(private tmdbservice: TmdbService) { }
   }
 
   ngOnInit() {
-    this.initialPage();
+    // this.initialPage();
   }
 
 }

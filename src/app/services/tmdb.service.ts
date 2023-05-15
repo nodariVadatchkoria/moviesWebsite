@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, forkJoin, map, Observable, tap, throwError} from "rxjs";
+import {BaseServiceService} from "./base-service.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TmdbService {
-  private apiUrl = 'https://api.themoviedb.org/3';
-  private apiKey = 'ac8e2b2c50afebfa47ac487c0271aa49';
+export class TmdbService extends BaseServiceService  {
+
+   apiKey = 'ac8e2b2c50afebfa47ac487c0271aa49';
   popularPeople: any[] = [];
 
-  constructor(private http: HttpClient) { }
+
 
   getMovieImage(movieId: number | undefined): Observable<string> {
     const url = `${this.apiUrl}/movie/${movieId}/images?api_key=${this.apiKey}`;
