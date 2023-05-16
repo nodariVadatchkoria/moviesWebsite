@@ -6,11 +6,12 @@ import {TmdbService} from "../../services";
 import {RouterLink, RouterOutlet} from "@angular/router";
 import {MovieImagesComponent} from "../movie-images/movie-images.component";
 import {TopRatedMoviesComponent} from "../top-rated-movies/top-rated-movies.component";
+import {SliderComponent} from "../../layout/slider/slider.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, MovieImagesComponent, TopRatedMoviesComponent, RouterLink],
+    imports: [CommonModule, RouterOutlet, MovieImagesComponent, TopRatedMoviesComponent, RouterLink, SliderComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

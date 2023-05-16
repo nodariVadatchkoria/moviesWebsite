@@ -6,19 +6,21 @@ header {
 }
 
 nav {
+  flex: 1;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 30px;
 }
 
 .logo h1 {
   font-size: 24px;
   font-family: 'Griffy', sans-serif;
+  color: #ff5500;
 }
 
 .nav-links li {
   display: inline-block;
   margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-links a {
@@ -26,6 +28,24 @@ nav {
   text-decoration: none;
 }
 
+.search {
+  width: 323.1px;
+  height: 36.9px;
+  background: #3B567D;
+  border-radius: 18.4486px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: rgb(250, 248, 248);
+  font-weight: 600;
+  &::placeholder {
+    color: rgb(250, 248, 248);
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
 
 .btn {
   display: inline-block;
@@ -78,6 +98,10 @@ nav {
 .nav-links li {
   margin: 0 10px;
   position: relative;
+
+  :hover {
+    color: #ff5500
+  }
 }
 
 .nav-links li a {
@@ -129,4 +153,5 @@ nav {
   visibility: visible;
 
 }
+
 //=============================== end backDrop menu ================================

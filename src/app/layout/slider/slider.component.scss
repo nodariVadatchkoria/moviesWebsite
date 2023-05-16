@@ -1,0 +1,20 @@
+:host{
+  display: block;
+  height: 987px;
+  position: relative;
+  .poster{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    z-index: 2;
+  }
+  .gradient{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: linear-gradient(90deg, #000000 17.76%, rgba(0, 0, 0, 0.68) 41%, rgba(196, 196, 196, 0) 100%);
+  }
+}
