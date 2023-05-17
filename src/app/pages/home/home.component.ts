@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Observable} from "rxjs";
 import {TmdbService} from "../../services";
@@ -31,6 +31,12 @@ export class HomeComponent implements OnInit{
     const movieId = 123; // Replace with the actual movie.ts ID you want to fetch the image for
     this.movieImage = this.tmdb.getMovieImage(movieId);
   }
+
+/*
+  ngAfterViewInit(): void {
+    this.fetchMovieImage();
+  }
+*/
 
 
 }

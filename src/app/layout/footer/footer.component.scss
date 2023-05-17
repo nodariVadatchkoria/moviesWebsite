@@ -48,11 +48,11 @@ footer {
     color: #FFFFFF;
     cursor: pointer;
     mix-blend-mode: normal;
-    opacity: 0.7;
+    opacity: 0.8;
     height: fit-content;
 
     .title {
-      font-family: Roboto, sans-serif;
+      font-family: Roboto, serif;
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
@@ -72,30 +72,112 @@ footer {
         cursor: pointer;
 
         &:hover {
-          opacity: 0.5;
+          opacity: 0.4;
+          color: #ff5500
         }
 
         a {
           text-decoration: none;
-          color: #fff;
+
+          :hover {
+            scale: 1.2;
+          }
         }
       }
     }
 
   }
-  .social{
+
+  .social {
     display: flex;
     gap: 14px;
     align-items: center;
     justify-content: center;
-    img{
-      cursor: pointer;
-      width: 30px;
-      height: 30px;
-      :hover{
-        opacity: 0.5;
+    .f {
+      width: 49px;
+      height: 49px;
+      border: none;
+      border-radius: 50%;
+
+      :hover  {
+        background: #1877f2;
+        border: none;
+        transition: 0.8s;
+
+      }
+
+      :not(:hover) {
+        fill: white;
+        transition: 0.8s;
+      }
+    }
+    .facebook {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      fill: white;
+      border: none;
+      :hover .f {
+        fill: #1877f2;
+        border: none;
+        transition: 0.8s;
+
+      }
+
+      :not(:hover) {
+        fill: white;
+        transition: 0.8s;
+        border: none;
       }
     }
   }
 
+  .twitter {
+    width: 50px;
+    height: 50px;
+    fill: white;
+
+    :hover {
+      fill: rgb(29, 155, 240);
+      scale: 0.98;
+      transition: 0.8s;
+    }
+
+    :not(:hover) {
+      fill: white;
+      transition: 0.8s;
+    }
+  }
+
+
+
+  .instagram {
+    width: 50px;
+    height: 50px;
+    border-radius: 28%;
+    background: linear-gradient(90deg, #feda75, #fa7e1e, #d62976, #962fbf);
+    :hover a {
+      scale: 0.98;
+      transition: 0.8s;
+
+    }
+
+    :not(:hover) {
+      fill: white;
+      transition: 0.8s;
+    }
+  }
+
 }
+
+.langChange {
+  display: flex;
+  justify-content: space-between;
+  background-repeat: no-repeat;
+  align-content: center;
+
+}
+
+
+
+

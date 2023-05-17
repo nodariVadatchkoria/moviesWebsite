@@ -1,5 +1,4 @@
 
-
 header {
   background-color: #333;
   color: #fff;
@@ -26,9 +25,11 @@ nav {
   text-decoration: none;
 }
 
-.main {
+main {
   padding: 20px;
   background: #6c757d;
+  position: absolute;
+
 }
 
 .hero {
