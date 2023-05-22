@@ -1,18 +1,19 @@
-export interface IMovie {
-  id: number;
-  title: string;
-  poster_path: string;
-  language: string;
-  overview: string;
-  release_date: string;
-  vote_average: number;
-  vote_count: number;
-  popularity: number;
-  original_language: string;
-  original_title: string;
-  backdrop_path: string;
-  adult: boolean;
-  video: boolean;
-  genre_ids: number[];
-
+export namespace Movie{
+  export interface  Popular {
+    adult: boolean
+    backdrop_path: string
+    genre_ids: number[]
+    id: number
+    original_language: string
+    original_title: string
+    overview: string
+    popularity: number
+    poster_path: string
+    release_date: string
+    title: string
+    video: boolean
+    vote_average: number
+    vote_count: number
+  }
 }
+

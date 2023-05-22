@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {IMovie} from "../interfaces/movie";
+import {Movie} from "../interfaces/movie";
+import Popular = Movie.Popular;
 
 
 @Injectable({
@@ -9,15 +10,15 @@ export class IndexedDBService {
   private dbName = 'movieDB';
   private storeName = 'movies';
 
-  async getAllMovies(): Promise<IMovie[]> {
-    return new Promise<IMovie[]>((resolve, reject) => {
+  async getAllMovies(): Promise<Popular[]> {
+    return new Promise<Popular[]>((resolve, reject) => {
       const request = window.indexedDB.open(this.dbName);
 
       request.onsuccess = () => {
         const db = request.result;
         const transaction = db.transaction(this.storeName, 'readonly');
         const store = transaction.objectStore(this.storeName);
-        const movies: IMovie[] = [];
+        const movies: Popular[] = [];
 
         const cursorRequest = store.openCursor();
 

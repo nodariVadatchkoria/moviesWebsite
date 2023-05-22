@@ -1,10 +1,21 @@
-<div>
-  <div class="poster" [style.background-image]="'url('+ image + ')'" >
-<div class="content">content</div>
+<ng-container *ngIf="popularMovies">
+  <div class="poster" [style.background-image]="'url('+ (movie?.backdrop_path | image)  +  ') '"  >
+    <div class="content">content</div>
 
-</div>
+  </div>
+</ng-container>
+<div>
+
 <div class="gradient">
 
+</div>
+</div>
 
-</div>
-</div>
+<!--  <div class="poster" [style.background-image]="'url('+ image + ')'" >
+    <div class="content">content</div>
+
+  </div>
+  <div class="gradient">
+
+
+  </div>-->

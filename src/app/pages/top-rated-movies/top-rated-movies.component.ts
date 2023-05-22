@@ -1,20 +1,21 @@
 import {Component, OnInit} from '@angular/core';
-import {TmdbService} from "../../services/tmdb.service";
+import {TmdbService} from "../../services";
 import {Observable, Subject, takeUntil, tap} from "rxjs";
-import {IMovie} from "../../interfaces/movie";
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import {Movie} from "../../interfaces";
+import {NgIf, NgFor, AsyncPipe, CommonModule} from '@angular/common';
+import Popular = Movie.Popular;
 
 @Component({
     selector: 'app-top-rated-movies',
     templateUrl: './top-rated-movies.component.html',
     styleUrls: ['./top-rated-movies.component.scss'],
     standalone: true,
-    imports: [NgIf, NgFor, AsyncPipe]
+    imports: [NgIf, NgFor, AsyncPipe, CommonModule]
 })
 export class TopRatedMoviesComponent implements OnInit {
   topRatedMovies: any[] = [];
   sub$ = new Subject()
-  movies$: Observable<IMovie[]> | undefined
+  movies$: Observable<Popular[]> | undefined;
 
   constructor(
     private tmdbService: TmdbService

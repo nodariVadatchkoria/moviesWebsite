@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {catchError, forkJoin, map, Observable, tap, throwError} from "rxjs";
 import {BaseServiceService} from "./base-service.service";
+import {ApiResponse, Movie} from "../interfaces";
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,12 @@ export class TmdbService extends BaseServiceService  {
         })
       );
   }
+
+  getPopularMovies(params: {
+    page?: any,
+    language?: string }): Observable<ApiResponse<Movie.Popular>> {
+    return this.get<ApiResponse<Movie.Popular>>('movie/popular' , params);
+    console.log(this.get<ApiResponse<Movie.Popular>>('movie/popular' , params));
+}
 
 }
