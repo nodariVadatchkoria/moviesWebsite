@@ -1,15 +1,26 @@
-<ng-container *ngIf="popularMovies">
-  <div class="poster" [style.background-image]="'url('+ (movie?.backdrop_path | image)  +  ') '"  >
-    <div class="content">content</div>
+<ng-container *ngIf="movie">
+  <div class="poster" [style.background-image]="'url('+ (movie.backdrop_path )  +  ') '"  >
 
+    <div class="gradient">
+      <div class="content">
+        <div class="title">{{movie.title}}</div>
+        <div class="overview">{{movie.overview}}</div>
+        <div class="rating">{{movie.vote_average}}
+          <img src="assets/icons/yellow-star.png" alt="star" class="star" width="20px">
+        </div>
+        <div class="actions">
+          <button app-button>Watch</button>
+        </div>
+
+
+      </div>
+    </div>
   </div>
 </ng-container>
-<div>
 
-<div class="gradient">
 
-</div>
-</div>
+
+
 
 <!--  <div class="poster" [style.background-image]="'url('+ image + ')'" >
     <div class="content">content</div>
