@@ -74,4 +74,10 @@ export class TmdbService extends BaseServiceService  {
     console.log(this.get<ApiResponse<Movie.Popular>>('movie/popular' , params));
 }
 
+getTrendingMovies(params: {
+  mediaType?: 'all' | 'movie' | 'tv' | 'person';
+  timeWindow?: 'day' | 'week';
+}): Observable<ApiResponse<Movie.Movie>> {
+  return this.get<ApiResponse<Movie.Movie>>(`trending/${params.mediaType}/${params.timeWindow}`);
+  }
 }

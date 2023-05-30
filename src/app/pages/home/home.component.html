@@ -1,5 +1,11 @@
 <app-slider [popularMovies]="popularMovies$ | async"/>
-
+<div class="content">
+<app-listcard [movie]="(trendingMovies$ | async) || []">
+  <ng-template #header>
+    <button class="show-all">Show All</button>
+  </ng-template>
+</app-listcard>
+</div>
 
 
 

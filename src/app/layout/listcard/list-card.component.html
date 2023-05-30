@@ -1,0 +1,25 @@
+<div class="header">
+  <h3 class="title">MOVIES YOU MUST WATCH</h3>
+
+  <ng-container *ngIf="headerBtn">
+    <button class="show-all" (click)="showall()">{{headerBtn}}</button>
+  </ng-container>
+</div>
+<div class="list">
+
+<!--  <swiper-container slides-per-view="20" speed="500" space-between="30" loop="true" css-mode="true">-->
+
+<!--    <swiper-slide>-->
+<!--     -->
+<!--    </swiper-slide>-->
+
+<!--   ...-->
+<!--  </swiper-container>-->
+
+  <ng-container *ngFor="let movie of movie">
+    <app-movie-cards [movie]="movie"/>
+  </ng-container>
+
+
+</div>
+
