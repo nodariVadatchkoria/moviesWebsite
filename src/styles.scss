@@ -3,3 +3,23 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.show-all {
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #faf8f8;
+  cursor: pointer;
+  width: 149px;
+  height: 40px;
+  background: #625f5f;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  &:hover {
+    background: #3a3838;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+}

@@ -1,6 +1,7 @@
 <ng-container *ngIf="movie">
   <div class="poster" [style.background-image]="'url('+ (movie.backdrop_path )  +  ') '"  >
 
+  </div>
     <div class="gradient">
       <div class="content">
         <div class="title">{{movie.title}}</div>
@@ -13,7 +14,10 @@
         </div>
       </div>
     </div>
+  <div class="carousel" *ngIf="carousel">
+    <ng-template *ngTemplateOutlet="carousel"></ng-template>
   </div>
+
 </ng-container>
 
 

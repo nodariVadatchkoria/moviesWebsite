@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, TemplateRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HomeComponent} from "../../pages/home/home.component";
 import {Movie} from "../../interfaces";
@@ -30,5 +30,7 @@ export class SliderComponent {
   get movie(): Movie.Popular | null{
     return this._Movies;
   }
+  @Input() carousel?: TemplateRef<any>;
+
 
 }

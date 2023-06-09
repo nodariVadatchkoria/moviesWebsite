@@ -1,8 +1,8 @@
 <div class="header">
-  <h3 class="title">MOVIES YOU MUST WATCH</h3>
+  <h3 class="title">{{title}}</h3>
 
   <ng-container *ngIf="headerBtn">
-    <button class="show-all" (click)="showall()">{{headerBtn}}</button>
+    <ng-container *ngTemplateOutlet="headerBtn"></ng-container>
   </ng-container>
 </div>
 <div class="list">

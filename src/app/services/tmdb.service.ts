@@ -80,4 +80,16 @@ getTrendingMovies(params: {
 }): Observable<ApiResponse<Movie.Movie>> {
   return this.get<ApiResponse<Movie.Movie>>(`trending/${params.mediaType}/${params.timeWindow}`);
   }
+
+  searchMovies(params: {
+    query: string;
+    page?: number;
+    include_adult?: boolean;
+    region?: string;
+    year?: number;
+    primary_release_year?: number;
+    language?: string;
+  }): Observable<ApiResponse<Movie.Movie>> {
+    return this.get<ApiResponse<Movie.Movie>>(`search/movie`, params);
+  }
 }

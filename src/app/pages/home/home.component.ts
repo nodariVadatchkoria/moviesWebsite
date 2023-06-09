@@ -1,9 +1,9 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ContentChild, Input, OnInit, TemplateRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {map, Observable} from "rxjs";
 import {TmdbService} from "../../services";
 
-import {RouterLink, RouterOutlet} from "@angular/router";
+import {Router, RouterLink, RouterOutlet} from "@angular/router";
 import {MovieImagesComponent} from "../movie-images/movie-images.component";
 import {TopRatedMoviesComponent} from "../top-rated-movies/top-rated-movies.component";
 import {SliderComponent} from "../../layout/slider/slider.component";
@@ -20,6 +20,8 @@ import {Movie} from "../../interfaces";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+
   title = 'moviesWebsite'
 
   movieImage: Observable<string> | undefined;
@@ -38,12 +40,11 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private tmdbService: TmdbService,
+    private router: Router,
   ) {
   }
 
   ngOnInit(): void {
-
-
 
   }
   fetchMovieImage() {
@@ -63,4 +64,12 @@ trendingMovies$: Observable<Movie.Movie[]> = this.tmdbService.getTrendingMovies(
 );
 
 
+  searchMovies(trending: string) {
+    this.router.navigate(['/search'], {
+      queryParams: {
+        trending
+      },
+    });
+
+  }
 }
