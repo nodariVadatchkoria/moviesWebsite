@@ -7,13 +7,13 @@
       <li><a href="#">Home</a></li>
       <li class="backdrop-menu">
         <a href="#">Movies</a>
-        <div class="backdrop"></div>
-        <ul class="dropdown-menu">
+        <div class="backdrop" ></div>
+        <ul class="dropdown-menu" [class.open]="isOpen" [class.closed]="!isOpen" (click)="toggleOpenClose()" >
           <li><a href="#">Action</a></li>
           <li><a href="#">Comedy</a></li>
           <li><a href="#">Drama</a></li>
           <li><a href="#">Horror</a></li>
-          <li><a (click)="openDialog()">Romance</a></li>
+          <li><a (click)="openDialog('3000ms', '1500ms')">Romance</a></li>
           <li><a href="#">Sci-Fi</a></li>
           <li><a href="#">Thriller</a></li>
           <li><a href="#">Top rated</a></li>
@@ -22,6 +22,13 @@
       </li>
       <li><a href="#">TV Shows</a></li>
       <li><a routerLink="people">People</a></li>
+      <div (click)="toggleOpen()">Click to open</div>
+      <div class="container">
+        <div class="open-transition" *ngIf="isOpen">
+          <p id="opa">content!</p>
+        </div>
+      </div>
+      <dialog>rame</dialog>
     </ul>
     <div>
       <input type="text" placeholder="Search" class="search">

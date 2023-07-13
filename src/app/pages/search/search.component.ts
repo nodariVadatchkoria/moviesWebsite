@@ -1,4 +1,4 @@
-import {Component, effect, Inject, OnInit, signal} from '@angular/core';
+import {Component, Inject, OnInit, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TmdbService} from "../../services";
 import {ApiResponse, Movie} from "../../interfaces";
@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
  tmdbService: TmdbService =Inject(TmdbService)
 
   movies = signal<Movie.Movie[]>([])
-
+movieS = signal<Movie.Movie[]>([])
 
 getMovies(){
    this.tmdbService.searchMovies({
@@ -24,12 +24,13 @@ getMovies(){
      language: 'en-US'
     }).subscribe((res: ApiResponse<Movie.Movie>) => {
       this.movies.set(res.results)
-     console.log(res.results)
+
    })
 }
 
   ngOnInit(): void {
     this.getMovies()
+    console.log(this.movies)
   }
 
 }

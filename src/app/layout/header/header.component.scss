@@ -155,3 +155,20 @@ nav {
 }
 
 //=============================== end backDrop menu ================================
+.open {
+  height: 200px; /* Adjust as per your needs */
+  opacity: 1;
+  background-color: yellow;
+  transition: all 1s ease-out; /* Adjust the duration as per your needs */
+}
+
+.closed {
+  height: 0;
+  opacity: 0.5;
+  background-color: green;
+  transition: all 2s ease-in; /* Adjust the duration as per your needs */
+}
+.open-transition {
+  opacity: 0;
+  transition: opacity 1s ease;
+}

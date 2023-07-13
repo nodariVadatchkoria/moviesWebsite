@@ -1,4 +1,4 @@
-import {Component, inject, Input, TemplateRef} from '@angular/core';
+import {Component,  Input, TemplateRef} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HomeComponent} from "../../pages/home/home.component";
 import {Movie} from "../../interfaces";

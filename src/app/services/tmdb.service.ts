@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+
 import {catchError, forkJoin, map, Observable, tap, throwError} from "rxjs";
 import {BaseServiceService} from "./base-service.service";
 import {ApiResponse, Movie} from "../interfaces";
@@ -90,6 +90,8 @@ getTrendingMovies(params: {
     primary_release_year?: number;
     language?: string;
   }): Observable<ApiResponse<Movie.Movie>> {
-    return this.get<ApiResponse<Movie.Movie>>(`search/movie`, params);
+    return this.http.get<ApiResponse<Movie.Movie>>(`${this.apiUrl}/search/movie`, { params });
+
   }
+
 }
