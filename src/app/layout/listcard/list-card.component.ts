@@ -14,7 +14,11 @@ import {MovieCardsComponent} from "../movie-cards/movie-cards.component";
 export class ListCardComponent implements OnInit {
   @Input() movie: Movie.Movie[] = [];
   @Input() title: string = '';
-  @ContentChild('headerBtn') headerBtn?: TemplateRef<any> | undefined;
+  @ContentChild('headerBtn') headerBtn?: TemplateRef<any>;
+  autoplay: {
+    delay: 5000;
+    disableOnInteraction: false;
+  } | undefined;
 
   showall() {
 

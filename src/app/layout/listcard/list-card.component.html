@@ -7,18 +7,18 @@
 </div>
 <div class="list">
 
-<!--  <swiper-container slides-per-view="20" speed="500" space-between="30" loop="true" css-mode="true">-->
+  <swiper-container slides-per-view="7" space-between="120" speed="500" loop="true" >
+    <ng-container *ngFor="let movie of movie">
 
-<!--    <swiper-slide>-->
-<!--     -->
-<!--    </swiper-slide>-->
+      <swiper-slide>
+        <app-movie-cards [movie]="movie"/>
+      </swiper-slide>
+    </ng-container>
+  </swiper-container>
 
-<!--   ...-->
-<!--  </swiper-container>-->
-
-  <ng-container *ngFor="let movie of movie">
-    <app-movie-cards [movie]="movie"/>
-  </ng-container>
+<!--  <ng-container *ngFor="let movie of movie">-->
+<!--    <app-movie-cards [movie]="movie"/>-->
+<!--  </ng-container>-->
 
 
 </div>

@@ -6,12 +6,12 @@
 
   .poster {
     position: absolute;
+    z-index: 1;
     right: 0;
     left: 0;
     height: 100%;
     width: 100%;
     background-size: cover;
-    z-index: 1;
     display: block;
     background-repeat: no-repeat;
     background-position: right;

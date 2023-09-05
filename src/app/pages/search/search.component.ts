@@ -1,36 +1,74 @@
-import {Component, Inject, OnInit, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, effect, inject, Inject, OnInit, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TmdbService} from "../../services";
 import {ApiResponse, Movie} from "../../interfaces";
 import {MovieCardsComponent} from "../../layout/movie-cards/movie-cards.component";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {debounceTime, map} from "rxjs";
+import {toSignal} from "@angular/core/rxjs-interop";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, MovieCardsComponent],
+  imports: [CommonModule, MovieCardsComponent, ReactiveFormsModule, NgxPaginationModule],
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchComponent implements OnInit {
- tmdbService: TmdbService =Inject(TmdbService)
+ tmdbService: TmdbService = inject(TmdbService);
 
+  filterForm: FormGroup = new FormGroup({
+    with_genres: new FormControl(''),
+    primary_release_year: new FormControl('2023'),
+  });
   movies = signal<Movie.Movie[]>([])
-movieS = signal<Movie.Movie[]>([])
 
-getMovies(){
-   this.tmdbService.searchMovies({
-     page: 1,
-      query: 'test',
-     language: 'en-US'
-    }).subscribe((res: ApiResponse<Movie.Movie>) => {
-      this.movies.set(res.results)
+  filter : any = signal<any>(this.filterForm.value)
 
-   })
-}
+  genres = toSignal(this.tmdbService.getGenres().pipe(map(res => res.genres)))
+
+  filterMoviees = effect(() => {
+    console.log('filter' , this.filter())
+    console.log('movies' , this.filter())
+  });
+
+
+page = signal<number>(1)
+
+  pages: number = 1;
+  public maxSize: number = 7;
+
+
 
   ngOnInit(): void {
     this.getMovies()
-    console.log(this.movies)
+
+    this.filterForm.valueChanges
+      .pipe(
+        debounceTime(500),
+      )
+      .subscribe((value) => {
+      this.filter.set(value)
+      this.getMovies()
+    })
+  }
+  getMovies(){
+    this.tmdbService.searchMovies({
+      page: this.page(),
+      language: 'en-US',
+      ...this.filter()
+    }).subscribe((res ) => {
+      this.movies.set(res.results)
+
+    })
   }
 
+
+  onChangeTable($event: any) {
+      this.page.update(value => value + 1)
+    console.log(this.page())
+    this.getMovies()
+  }
 }

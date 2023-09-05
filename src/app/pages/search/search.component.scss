@@ -1,17 +1,17 @@
-:host{
+ :host{
   color: white;
-  padding: 100px 20px 20px;
+
   .wrapper{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 100px 20px 20px;
+    padding: 100px 125px 30px;
   }
   .movies{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+    grid-template-columns: repeat(5, 1fr);
     gap: 16px;
-
+    margin: 0 0 0 90px;
   }
 
 }

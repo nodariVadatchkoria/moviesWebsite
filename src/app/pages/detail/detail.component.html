@@ -1,8 +1,41 @@
+<app-slider
+        [popularMovies]="data()?.movie"
+        [carousel]="actors"
+></app-slider>
+
+<ng-template #actors>
+    <app-trailer-actors>
+        <div class="actors-wrapper">
+
+            <ng-container *ngIf="trailer">
+                <div>
+                    <h3>Trailer</h3>
+                    <iframe width="560" height="315" [src]="trailer()"></iframe>
+                </div>
+            </ng-container>
 
 
+            <div class="actors">
+                <h3>Actors</h3>
+                <div >
+                    <swiper-container slides-per-view="5" speed="500" loop="true" navigation="true"  scrolbar="true" scrolbar="true">
+                        <swiper-slide  *ngFor="let actor of cast() ">
+                            <app-actor-card [actor]="actor"></app-actor-card>
+<!--                            <div class="actor">-->
+<!--                                <img [src]="actor?.profile_path | image: 'w185'" alt="actor image">-->
+<!--                                <h4>{{actor?.name}}</h4>-->
+<!--                            </div>-->
+                        </swiper-slide>
+                    </swiper-container>
+                </div>
 
+            </div>
 
-<ng-container id="imageContainer">
-  <img id="image" src="./assets/images/img/8.jpg">
-</ng-container>
+        </div>
+    </app-trailer-actors>
+</ng-template>
+
+<!--<ng-container id="imageContainer">-->
+<!--  <img id="image" src="./assets/images/img/8.jpg">-->
+<!--</ng-container>-->
 

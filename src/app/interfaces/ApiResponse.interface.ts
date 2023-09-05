@@ -3,5 +3,6 @@ export interface ApiResponse <T>{
   page: number
   total_pages: number
   total_results: number
+  genres: any[]
 }
 

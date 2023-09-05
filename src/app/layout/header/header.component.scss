@@ -15,6 +15,7 @@ nav {
   font-size: 24px;
   font-family: 'Griffy', sans-serif;
   color: #ff5500;
+  cursor: pointer;
 }
 
 .nav-links li {
@@ -106,7 +107,7 @@ nav {
 
 .nav-links li a {
   text-decoration: none;
-  color: #efeeee;
+  color: #111111;
   font-size: 18px;
   font-weight: 500;
 }
@@ -159,12 +160,12 @@ nav {
   height: 200px; /* Adjust as per your needs */
   opacity: 1;
   background-color: yellow;
-  transition: all 1s ease-out; /* Adjust the duration as per your needs */
+  transition: all 1.5s ease-out; /* Adjust the duration as per your needs */
 }
 
 .closed {
-  height: 0;
-  opacity: 0.5;
+  height: 200px;
+  opacity: 1;
   background-color: green;
   transition: all 2s ease-in; /* Adjust the duration as per your needs */
 }

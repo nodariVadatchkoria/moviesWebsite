@@ -82,7 +82,7 @@ getTrendingMovies(params: {
   }
 
   searchMovies(params: {
-    query: string;
+    query?: string;
     page?: number;
     include_adult?: boolean;
     region?: string;
@@ -90,8 +90,36 @@ getTrendingMovies(params: {
     primary_release_year?: number;
     language?: string;
   }): Observable<ApiResponse<Movie.Movie>> {
-    return this.http.get<ApiResponse<Movie.Movie>>(`${this.apiUrl}/search/movie`, { params });
+    return this.http.get<ApiResponse<Movie.Movie>>(`${this.apiUrl}/discover/movie`, { params });
 
   }
 
+  getGenres(params:{
+    language?: string;
+  } = {
+    language: 'en-US',
+  }): Observable<ApiResponse<any>>{
+    return this.get<ApiResponse<any>>(`genre/movie/list`, params);
+  }
+
+  getMovieDetailById(params: {
+    id: number;
+  }): Observable<any> {
+    return this.get<any>(`movie/${params.id}`);
+  }
+   getMovieTrailerById(params: {
+     id: number;
+   }): Observable<any> {
+     return this.get<any>(`movie/${params.id}/videos`);
+   }
+
+
+    getMovieCast(params: { id: number }): Observable<any> {
+        return this.get<any>(`movie/${params.id}/credits`);
+    }
+
+
+    getMovieSimilar(param: { id: number }) {
+        return this.get<any>(`movie/${param.id}/similar`);
+    }
 }

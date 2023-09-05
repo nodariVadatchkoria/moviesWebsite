@@ -1,10 +1,10 @@
 <header>
   <nav>
-    <div class="logo">
+    <div class="logo" routerLink="/">
       <h1>The Movie Database</h1>
     </div>
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
+      <li><a routerLink="/">Home</a></li>
       <li class="backdrop-menu">
         <a href="#">Movies</a>
         <div class="backdrop" ></div>
@@ -22,7 +22,6 @@
       </li>
       <li><a href="#">TV Shows</a></li>
       <li><a routerLink="people">People</a></li>
-      <div (click)="toggleOpen()">Click to open</div>
       <div class="container">
         <div class="open-transition" *ngIf="isOpen">
           <p id="opa">content!</p>
