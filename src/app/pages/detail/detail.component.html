@@ -18,8 +18,8 @@
             <div class="actors">
                 <h3>Actors</h3>
                 <div >
-                    <swiper-container slides-per-view="5" speed="500" loop="true" navigation="true"  scrolbar="true" scrolbar="true">
-                        <swiper-slide  *ngFor="let actor of cast() ">
+                    <swiper-container class="flex" slides-per-view="5" speed="1000" loop="true" navigation="true"  scrolbar="true">
+                        <swiper-slide slides-per-view="5"  *ngFor="let actor of cast() ">
                             <app-actor-card [actor]="actor"></app-actor-card>
 <!--                            <div class="actor">-->
 <!--                                <img [src]="actor?.profile_path | image: 'w185'" alt="actor image">-->

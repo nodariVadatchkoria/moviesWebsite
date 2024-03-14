@@ -1,0 +1,12 @@
+<div class="container">
+    <div>
+        <ng-container  *ngIf="!content">
+            <h1 class="text-6xl text-red-600 font-bold underline">404</h1>
+            <p >Page not found</p>
+        </ng-container>
+        <ng-container *ngIf="content"  class="flex content-center justify-between">
+            <h1 class="text-6xl text-red-600 font-bold underline">{{content}}</h1>
+            <p>list</p>
+        </ng-container>
+    </div>
+</div>

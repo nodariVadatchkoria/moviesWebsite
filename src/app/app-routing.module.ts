@@ -29,6 +29,10 @@ const routes: Routes = [
         path: 'movie/:id',
         loadComponent: () => import('./pages/detail/detail.component').then(m => m.DetailComponent),
       },
+      {
+        path: 'tv',
+        loadComponent: () => import('./pages/tv-show/tv-show.component').then(m => m.TvShowComponent),
+      }
     ]
   },
 

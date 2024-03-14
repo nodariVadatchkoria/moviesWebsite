@@ -1,4 +1,4 @@
-export const environment = {
+export let environment = {
   production: true,
   development: true,
   apiUrl: 'https://api.themoviedb.org/3',

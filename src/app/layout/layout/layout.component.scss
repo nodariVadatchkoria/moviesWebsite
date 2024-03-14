@@ -14,6 +14,7 @@
 .body {
   font-family: Arial, sans-serif;
   background: linear-gradient(20deg, #000000 30%, rgba(0, 0, 0, 0) 100%);
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -22,12 +23,15 @@
     flex: initial;
   }
   .content{
-    //z-index: 3;
     //position: absolute;
     //top: 70%;
     //width: calc(100% - 125px);
     //height: 500px;
     //margin-left: 125px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
 
   }
     app-footer{

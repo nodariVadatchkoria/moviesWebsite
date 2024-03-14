@@ -3,19 +3,22 @@ import { Injectable } from '@angular/core';
 import {catchError, forkJoin, map, Observable, tap, throwError} from "rxjs";
 import {BaseServiceService} from "./base-service.service";
 import {ApiResponse, Movie} from "../interfaces";
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TmdbService extends BaseServiceService  {
 
-   apiKey = 'ac8e2b2c50afebfa47ac487c0271aa49';
+  api_key = environment.api_key;
+
+   // apiKey = 'ac8e2b2c50afebfa47ac487c0271aa49';
   popularPeople: any[] = [];
 
 
 
   getMovieImage(movieId: number | undefined): Observable<string> {
-    const url = `${this.apiUrl}/movie/${movieId}/images?api_key=${this.apiKey}`;
+    const url = `${this.apiUrl}/movie/${movieId}/images?api_key=${this.api_key}`;
     return this.http.get(url)
       .pipe(
         map((response: any) => {
@@ -30,7 +33,7 @@ export class TmdbService extends BaseServiceService  {
   }
 
   getTopRatedMovies(): Observable<any[]> {
-    const url = `${this.apiUrl}/movie/top_rated?api_key=${this.apiKey}`;
+    const url = `${this.apiUrl}/movie/top_rated?api_key=${this.api_key}`;
     return this.http.get<any[]>(url)
       .pipe(
         map((response: any) => response.results),
@@ -41,7 +44,7 @@ export class TmdbService extends BaseServiceService  {
       );
   }
   getMovieDetails(movieId: number): Observable<any> {
-    const url = `${this.apiUrl}/movie/${movieId}?api_key=${this.apiKey}`;
+    const url = `${this.apiUrl}/movie/${movieId}?api_key=${this.api_key}`;
     return this.http.get(url)
       .pipe(
         catchError((error: any) => {
@@ -54,7 +57,7 @@ export class TmdbService extends BaseServiceService  {
     const totalPages = 500; // The total number of pages available on TMDB
     const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
     const requests = pageNumbers.map((pageNumber) => {
-      const url = `https://api.themoviedb.org/3/person/popular?api_key=${this.apiKey}&page=${pageNumber}`;
+      const url = `https://api.themoviedb.org/3/person/popular?api_key=${this.api_key}&page=${pageNumber}`;
       return this.http.get<any>(url).pipe(map((response) => response.results));
     });
 
@@ -90,7 +93,7 @@ getTrendingMovies(params: {
     primary_release_year?: number;
     language?: string;
   }): Observable<ApiResponse<Movie.Movie>> {
-    return this.http.get<ApiResponse<Movie.Movie>>(`${this.apiUrl}/discover/movie`, { params });
+    return this.http.get<ApiResponse<Movie.Movie>>(`${this.api_key}/discover/movie`, { params });
 
   }
 

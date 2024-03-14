@@ -1,13 +1,13 @@
 
 <p>people list</p>
-<!--<div *ngFor="let person of displayedPeople">-->
-<!--  <p routerLink="person/:id">{{ person.name }}</p>-->
+<div *ngFor="let person of displayedPeople">
+  <p routerLink="person/:id">{{ person.name }}</p>
 
-<!--</div>-->
+</div>
 
-<!--<div>-->
-<!--  <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>-->
-<!--  <button *ngFor="let pageNumber of totalPages" (click)="goToPage(pageNumber)">{{ pageNumber }}</button>-->
-<!--  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>-->
-<!--</div>-->
+<div>
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+  <button *ngFor="let pageNumber of totalPages" (click)="goToPage(pageNumber)">{{ pageNumber }}</button>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+</div>
 

@@ -1,16 +1,20 @@
 :host {
   position: relative;
-  height: 2500px;
 
 
 
 .content{
   //z-index: 9;
   //position: absolute;
-  top: 70%;
-  width: calc(100% - 125px);
-  height: 500px;
-  margin-left: 125px;
-  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  height: 100%;
+  //margin-left: 125px;
+  //margin-bottom: 25px;
 }
 }

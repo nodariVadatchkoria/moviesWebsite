@@ -1,2 +1,4 @@
-<img [src]="actor?.profile_path | image: 'w185'" >
-<h4>{{actor.name}}</h4>
+<ng-container class="actors">
+  <img [src]="actor.profile_path | image: 'w185'"  alt="profile picture">
+  <h4>{{actor.name}}</h4>
+</ng-container>

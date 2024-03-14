@@ -1,19 +1,24 @@
-<ng-container *ngIf="movies$ | async as movies; else loading;" >
-  <h2>Top Rated Movies</h2>
-  <ul class="movie-box ">
-    <div *ngFor="let movie of movies; let i = index">
+<div class=" w-[1300px] h-[2200px] bg-amber-600 " *ngIf="movies$ | async as movies; else loading;" >
+  <div class="flex flex-col items-center max">
+    <h2>20 Top Rated Movies</h2>
+  <div class="flex flex-row flex-wrap">
+    <div class="movie-box text-grey" *ngFor="let movie of movies; let i = index">
       <h3>{{ i + 1 }}. {{ movie.title }}</h3>
       <p>Language: {{ movie.original_language }}</p>
       <p>Rating: {{ movie.vote_average }}</p>
       <p>Release Date: {{ movie.release_date }}</p>
       <p>Overview: {{ movie.overview }}</p>
+      <p><a (click)="openDialog('400ms', '200ms')">Overview:</a></p>
       <p>Popularity: {{ movie.popularity }}</p>
       <img *ngIf="movie.poster_path" [src]="endPoint + movie.poster_path" alt="{{ movie.title }} Poster" width="200">
       <div *ngIf="!movie.poster_path">No poster available</div>
     </div>
-  </ul>
-</ng-container>
+  </div>
+  </div>
+
+</div>
+
 
 <ng-template #loading>
-  <p>Loading movies...</p>
+  <nz-spin nzSimple></nz-spin>
 </ng-template>

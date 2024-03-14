@@ -1,58 +1,29 @@
 <app-slider [popularMovies]="popularMovies$ | async" [carousel]="trendingMovies"/>
 
 <ng-template #trendingMovies>
-  <app-listcard title="Trending Movies" [movie]="(trendingMovies$ | async) || []" >
-    <ng-template #headerBtn>
-      <button class="show-all" (click)="searchMovies('trending')">Show All</button>
-    </ng-template>
-  </app-listcard>
+<!--  <app-listcard title="Trending Movies" [movie]="(trendingMovies$ | async) || []" >-->
+<!--    <ng-template #headerBtn>-->
+<!--      <button class="show-all" (click)="searchMovies('trending')">Show All</button>-->
+<!--    </ng-template>-->
+<!--  </app-listcard>-->
 </ng-template>
 
 <div class="content">
+    <app-listcard title="Trending Movies" [movie]="(trendingMovies$ | async) || []" >
+      <ng-template #headerBtn>
+        <button class="show-all" (click)="searchMovies('trending')">Show All</button>
+      </ng-template>
+    </app-listcard>
 
-  <app-listcard title="RECOMMENDED FOR YOU" [movie]="(trendingMovies$ | async) || []">
+  <app-listcard title="Top Rated 20 Movies " [movie]="(topRatedMovies$ | async) || []">
     <ng-template #headerBtn>
       <button class="show-all" (click)="searchMovies('recommended')">Show All</button>
     </ng-template>
   </app-listcard>
-
-
+  <app-listcard title="RECOMMENDED FOR YOU" [movie]="(trendingMovies$ | async) || []"></app-listcard>
+  <app-top-rated-movies></app-top-rated-movies>
 </div>
 
 
-<!--<main>
-    <section>
-      <div class ='people'>
-        <router-outlet></router-outlet>
-      </div>
-    </section>
-    <section class="hero">
-      <div class="hero-content">
-        <h2>Welcome to The Movie Database</h2>
-        <p>Discover and explore your favorite movies, TV shows, and more!</p>
-        <a href="#" class="btn">Get Started</a>
-      </div>
-    </section>
-
-    <section class="featured-movies">
-      <app-movie-images class="movie-grid"></app-movie-images>
-      <app-top-rated-movies></app-top-rated-movies>
-      <h2>Featured Movies</h2>
-      <div class="movie-grid">
-        <div class="movie-card">
-          <img [src]="movieImage | async" alt="Movie Image">
-          <h3>Movie 1</h3>
-        </div>
-        <div class="movie-card">
-          <img [src]="movieImage | async" alt="Movie Image">
-          <h3>Movie 2</h3>
-        </div>
-        <div class="movie-card">
-          <img [src]="movieImage | async" alt="Movie Image">
-          <h3>Movie 3</h3>
-        </div>
-      </div>
-    </section>
-  </main>-->
 
 

@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
 
   title = 'moviesWebsite'
 
-  movieImage: Observable<string> | undefined;
 
   popularMovies$:Observable< Movie.Popular | null> = this.tmdbService.getPopularMovies({
     page: 1,
@@ -38,6 +37,7 @@ export class HomeComponent implements OnInit {
     }),
   )
 
+
   constructor(
     private tmdbService: TmdbService,
     private router: Router,
@@ -45,13 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
-  fetchMovieImage() {
-    const movieId = 123; // Replace with the actual movie.ts ID you want to fetch the image for
-    this.movieImage = this.tmdbService.getMovieImage(movieId);
-  }
-
 
 
 trendingMovies$: Observable<Movie.Movie[]> = this.tmdbService.getTrendingMovies({
@@ -62,6 +56,13 @@ trendingMovies$: Observable<Movie.Movie[]> = this.tmdbService.getTrendingMovies(
     return res.results;
   }),
 );
+  topRatedMovies$: Observable<Movie.Movie[]> = this.tmdbService.getTopRatedMovies().pipe(
+    map((res) => {
+      console.log('top rated movies:', res);
+      return res;
+    }),
+
+  );
 
 
   searchMovies(trending: string) {
